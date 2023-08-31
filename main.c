@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	char line[50];
 	int number, i, answer;
 
-	if (argc == 0)
+	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: factor <file>\n");
 		exit(EXIT_FAILURE);
