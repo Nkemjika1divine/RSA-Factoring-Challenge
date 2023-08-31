@@ -13,7 +13,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	char line[20];
+	char line[50];
 	int number, i, answer;
 
 	if (argc == 0)
