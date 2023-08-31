@@ -1,4 +1,7 @@
-#include "main.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**
  * main - runs the program
@@ -11,9 +14,9 @@ int main(int argc, char *argv[])
 {
 	FILE *fd;
 	char line[20];
-	int number;
+	int number, i, answer;
 
-	if (argv == 0)
+	if (argc == 0)
 	{
 		fprintf(stderr, "Usage: factor <file>\n");
 		exit(EXIT_FAILURE);
@@ -30,4 +33,16 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		number = atoi(line);
-
+		for (i = 2; i < number; i++)
+		{
+			if ((number % i) == 0)
+			{
+				answer = number / i;
+				printf("%d=%d*%d\n", number, answer, i);
+				break;
+			}
+		}
+	}
+	fclose(fd);
+	return (0);
+}
