@@ -33,13 +33,18 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		number = atoi(line);
-		for (i = 2; i < number; i++)
+		if (number <= 0)
+			fprintf(stderr, "String cant be converted\n");
+		else
 		{
-			if ((number % i) == 0)
+			for (i = 2; i < number; i++)
 			{
-				answer = number / i;
-				printf("%d=%d*%d\n", number, answer, i);
-				break;
+				if ((number % i) == 0)
+				{
+					answer = number / i;
+					printf("%d=%d*%d\n", number, answer, i);
+					break;
+				}
 			}
 		}
 	}
